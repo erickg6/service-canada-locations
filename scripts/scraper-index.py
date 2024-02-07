@@ -3,6 +3,8 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By # Util that helps to select elements with XPath
 import csv # CSV library that helps us save our result
 
+#This script only gets links and info from the Service Canada page specific to a province or territory.
+
 options = Options() 
 options.add_argument("--headless") # Run selenium under headless mode
 

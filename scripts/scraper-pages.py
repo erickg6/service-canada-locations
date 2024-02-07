@@ -3,11 +3,13 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By # Util that helps to select elements with XPath
 import csv # CSV library that helps us save our result
 
+#This script gets the address from a Service Canada center's specific page
+
 options = Options() 
 options.add_argument("--headless") # Run selenium under headless mode
 
 driver = webdriver.Firefox(options=options) # Initialize the driver instance
-driver.implicitly_wait(2) #tell the driver to wait a second if it doesn't see the thing it's looking for (for javascript)
+driver.implicitly_wait(2) #tell the driver to wait if the javascript hasn't loaded yet
 
 filecsv = open('file-pages.csv', 'w', encoding='utf8', newline='') #csv in windows adds an extra newline character, "newline" argument removes it
 csv_columns = ['region', 'page-header', "link"]

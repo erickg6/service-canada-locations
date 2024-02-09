@@ -1,5 +1,5 @@
-from selenium import webdriver 
-from selenium.webdriver.firefox.options import Options 
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By # Util that helps to select elements with XPath
 import csv # CSV library that helps us save our result
 

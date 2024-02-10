@@ -1,27 +1,7 @@
-import csv
-from geopy.geocoders import Nominatim
-from geopy.exc import GeocoderUnavailable
-import time
+"""module for appending geo coords to the list of centres with addresses"""
 
-def get_coordinates(address):
-    geolocator = Nominatim(user_agent="geo_locator")
-    attempts = 0
-    max_attempts = 3  # Maximum number of retry attempts
-    
-    while attempts < max_attempts:
-        try:
-            location = geolocator.geocode(address)
-            if location:
-                return location.latitude, location.longitude
-            else:
-                return None, None
-        except GeocoderUnavailable as e:
-            print(f"Geocoder service unavailable. Retrying in 5 seconds... Attempt {attempts+1}/{max_attempts}")
-            time.sleep(5)  # Wait for 5 seconds before retrying
-            attempts += 1
-    
-    print("Max retry attempts reached. Unable to retrieve coordinates.")
-    return None, None
+import csv
+from postal_code_lookup import get_coordinates
 
 def add_coordinates(input_file, output_file):
     with open(input_file, 'r') as csv_file, open(output_file, 'w', newline='') as output_csv:
@@ -31,8 +11,8 @@ def add_coordinates(input_file, output_file):
         writer.writeheader()  # Write header row
         
         for row in reader:
-            address = row['address']  # Assuming the address column is named 'Address'
-            latitude, longitude = get_coordinates(address)
+            postal_code = row['postal_code']  # Assuming the address column is named 'Address'
+            latitude, longitude = get_coordinates(postal_code)
             row['latitude'] = latitude
             row['longitude'] = longitude
             writer.writerow(row)

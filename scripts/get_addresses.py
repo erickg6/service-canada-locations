@@ -29,10 +29,10 @@ writer.writeheader()
 center_links = [] #initialize a list for the centers in a region
 
 #these are the province & territory (region) 2 letter codes in Canada
-#regions = ['BC', 'AB', 'SK', 'MB', 'ON', 'QC', 'NB', 'NS', 'PE', 'NL', 'YT', 'NU', 'NT']
+regions = ['BC', 'AB', 'SK', 'MB', 'ON', 'QC', 'NB', 'NS', 'PE', 'NL', 'YT', 'NU', 'NT']
 
 #Single region test:
-regions = ['SK']
+#regions = ['SK']
 
 max_attempts = 3 #maximum number of attempts in case page doesn't load
 
@@ -68,6 +68,7 @@ for region in regions:
                 trim_address = address.replace('\n', ', ')
                 postal_code = address[-6:]
                 
+                print(f'{header} ok')
                 writer.writerow({'region': region, 
                                  'center_code': center_code,
                                  'page_header': header, 

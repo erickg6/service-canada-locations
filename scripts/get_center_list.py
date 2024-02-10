@@ -1,4 +1,4 @@
-"""module for getting a list of Service Canada Centers"""
+"""module for getting a simple list of Service Canada Centers"""
 
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options

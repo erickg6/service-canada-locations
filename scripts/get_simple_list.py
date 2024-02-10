@@ -1,3 +1,5 @@
+"""module for getting a list of Service Canada Centers"""
+
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By # Util that helps to select elements with XPath
@@ -20,7 +22,7 @@ regions = ['BC', 'AB', 'SK', 'MB', 'ON', 'QC', 'NB', 'NS', 'PE', 'NL', 'YT', 'NU
 for region in regions:
     print(region)
 
-    driver.get("https://www.servicecanada.gc.ca/tbsc-fsco/sc-lst.jsp?prov="+region+"&lang=eng") 
+    driver.get(f"https://www.servicecanada.gc.ca/tbsc-fsco/sc-lst.jsp?prov={region}&lang=eng") 
     centers = driver.find_elements(By.XPATH, "/html/body/main/ul//a")
 
     for center in centers:

@@ -20,6 +20,7 @@ csv_columns = [
     'center_code', #string found in url that uniquely identifies center
     'page_header', #name of center
     'link', #link to center's page
+    'address', #address from the center's page
     'postal_code' #center postal code
     ] 
 writer = csv.DictWriter(filecsv, fieldnames = csv_columns)

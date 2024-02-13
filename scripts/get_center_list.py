@@ -15,7 +15,7 @@ options.add_argument("--headless") # Run selenium under headless mode
 driver = webdriver.Firefox(options=options) # Initialize the driver instance
 
 filecsv = open('center_info.csv', 'w', encoding='utf8', newline='') #csv in windows adds an extra newline character, "newline" argument removes it
-csv_columns = ['region','center-type', 'center-lang', 'name','link']
+csv_columns = ['region','center_type', 'center_lang', 'name','link']
 writer = csv.DictWriter(filecsv, fieldnames = csv_columns)
 writer.writeheader()
 
@@ -33,7 +33,7 @@ for region in regions:
         clang = center.find_element(By.XPATH, "./ancestor::ul[1]/preceding::strong[1]").text
         link = center.find_element(By.XPATH, ".").get_attribute("href")
 
-        writer.writerow({'region': region, 'center-type': ctype, 'center-lang': clang, 'name': name, 'link': link})
+        writer.writerow({'region': region, 'center_type': ctype, 'center_lang': clang, 'name': name, 'link': link})
 
 filecsv.close()
 driver.close()

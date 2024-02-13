@@ -1,4 +1,6 @@
-"""module for getting a simple list of Service Canada Centers"""
+"""module for getting a simple list of Service Canada Centers
+
+output file is called center_info"""
 
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
@@ -12,7 +14,7 @@ options.add_argument("--headless") # Run selenium under headless mode
 
 driver = webdriver.Firefox(options=options) # Initialize the driver instance
 
-filecsv = open('file-index.csv', 'w', encoding='utf8', newline='') #csv in windows adds an extra newline character, "newline" argument removes it
+filecsv = open('center_info.csv', 'w', encoding='utf8', newline='') #csv in windows adds an extra newline character, "newline" argument removes it
 csv_columns = ['region','center-type', 'center-lang', 'name','link']
 writer = csv.DictWriter(filecsv, fieldnames = csv_columns)
 writer.writeheader()

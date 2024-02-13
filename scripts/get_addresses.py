@@ -12,7 +12,7 @@ options.add_argument("--headless") # Run selenium under headless mode
 driver = webdriver.Firefox(options=options) # Initialize the driver instance
 driver.implicitly_wait(10) #tell the driver to wait if the javascript hasn't loaded yet
 
-filecsv = open('file-pages.csv', 'w', encoding='utf8', newline='')
+filecsv = open('center_locations.csv', 'w', encoding='utf8', newline='')
 #csv in windows adds an extra newline character, "newline" argument removes it
 
 csv_columns = [
@@ -20,7 +20,6 @@ csv_columns = [
     'center_code', #string found in url that uniquely identifies center
     'page_header', #name of center
     'link', #link to center's page
-    'address', #center address
     'postal_code' #center postal code
     ] 
 writer = csv.DictWriter(filecsv, fieldnames = csv_columns)

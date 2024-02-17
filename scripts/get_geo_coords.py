@@ -24,6 +24,6 @@ def add_coordinates(input_file, output_file):
             item_index += 1
 
 if __name__ == "__main__":
-    input_file = "'center_locations.csv"  # Change to your input CSV file
+    input_file = "center_locations.csv"  # Change to your input CSV file
     output_file = "output.csv"  # Change to desired output CSV file
     add_coordinates(input_file, output_file)

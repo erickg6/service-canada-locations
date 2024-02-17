@@ -32,8 +32,8 @@ for region in regions:
         ctype = center.find_element(By.XPATH, "./ancestor::ul[2]/preceding::h2[1]").text
         clang = center.find_element(By.XPATH, "./ancestor::ul[1]/preceding::strong[1]").text
         link = center.find_element(By.XPATH, ".").get_attribute("href")
-
+        
         writer.writerow({'region': region, 'center_type': ctype, 'center_lang': clang, 'name': name, 'link': link})
 
 filecsv.close()
-driver.close()
+driver.quit()

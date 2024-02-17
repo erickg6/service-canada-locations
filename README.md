@@ -19,7 +19,7 @@ get_center_list.py was my first attempt at just scraping the list of centers fro
 
 geocoder_lookup.py is the module that connects to Geocoder.ca and looks up the lat / long for get_geo_coords.py
 
-## [Geocoder.ca](https//geocoder.ca)
+## [Geocoder.ca](https://geocoder.ca)
 
 This is an excellent service. Thank you kindly to those who made it available.
 

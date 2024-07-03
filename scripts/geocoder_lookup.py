@@ -14,9 +14,9 @@ def get_coordinates(search_string, max_attempts=3, delay=5):
     
     search_queries = [postal_code, address, municipality_with_pc, municipality]
 
-    for query in search_queries:
+    for query in search_queries: #loop through search queries
         attempt = 0
-        while attempt < max_attempts:
+        while attempt < max_attempts: #nested loop to try something a number of times
             try:
                 url = f"https://geocoder.ca/{query}?json=1"
                 response = requests.get(url)
@@ -26,20 +26,20 @@ def get_coordinates(search_string, max_attempts=3, delay=5):
                 longitude = json_data['longt']
                 latitude = json_data['latt']
 
-                return latitude, longitude
+                return latitude, longitude #success
             except:
                 print(f'attempt {attempt+1} query failed: {query}, error: {response.status_code}.')
-                if response.status_code == 200:
-                    break
+                if response.status_code == 200: #page returned json, but returned no lat/long
+                    break #exit the multiple attempt 'while' loop
             
             attempt += 1
-            if attempt < max_attempts:
+            if attempt < max_attempts: #while there are still attempts before reaching the maximum
                 print(f'retrying in {delay} seconds')
-                time.sleep(delay)
+                time.sleep(delay) #wait a few seconds before trying for the next 
 
 
     print(f'{search_string} no response, failed after {max_attempts} attempts')
-    return None, None
+    return None, None #failure
 
 # Test
 # search = 'Hamlet of Taloyoak, Box 8, Taloyoak, Nunavut, X0B1B0'
